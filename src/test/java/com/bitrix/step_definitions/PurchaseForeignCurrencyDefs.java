@@ -9,6 +9,12 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -33,37 +39,54 @@ public class PurchaseForeignCurrencyDefs {
 
         BrowserUtils.waitFor(3);
 
-        List<String> options = BrowserUtils.getElementsText(payBillsPage.currecyList);
-        List<String> actualOptions=new ArrayList<>();
-        for (int i = 0; i < options.size(); i++) {
-            actualOptions.add(options.get(i));
-        }
-        System.out.println(actualOptions);
-        System.out.println(menuOptions);
+        List<String> options = BrowserUtils.getElementsText(payBillsPage.currencyList);
 
         for (int i = 0; i < menuOptions.size(); i++) {
-            if (!(actualOptions.contains(menuOptions.get(i)))) {
-                Assert.assertTrue(false);
-            } else {
+            if (options.contains(menuOptions.get(i))) {
                 Assert.assertTrue(true);
+            } else {
+                Assert.assertTrue(false);
             }
         }
+//THERE IS UNKNOWN PROBLEM IN THIS CODE . CHECK IT LATER
 
 
     }
 
     @When("user tries to calculate cost without selecting a currency")
     public void user_tries_to_calculate_cost_without_selecting_a_currency() {
+        PayBillsPage payBillsPage=new PayBillsPage();
+        payBillsPage.purchaseForeignCurrencyLink.click();
+        BrowserUtils.waitFor(2);
+        WebElement element = Driver.get().findElement(By.id("pc_calculate_costs"));
+        JavascriptExecutor executor = (JavascriptExecutor)Driver.get();
+        executor.executeScript("arguments[0].click();", element);
+
+
 
     }
 
     @Then("error message should be displayed")
     public void error_message_should_be_displayed() {
+        Alert alert = Driver.get().switchTo().alert();
+
+        String expected="Please, ensure that you have filled all the required fields with valid values.";
+        Assert.assertEquals(expected,alert.getText());
+        alert.accept();
+        BrowserUtils.waitFor(2);
 
     }
 
     @When("user tries to calculate cost without entering a value")
     public void user_tries_to_calculate_cost_without_entering_a_value() {
+        PayBillsPage payBillsPage=new PayBillsPage();
+        payBillsPage.purchaseForeignCurrencyLink.click();
+        BrowserUtils.waitFor(2);
+        WebElement element = Driver.get().findElement(By.id("pc_calculate_costs"));
+        JavascriptExecutor executor = (JavascriptExecutor)Driver.get();
+        executor.executeScript("arguments[0].click();", element);
+
+
 
     }
 }
