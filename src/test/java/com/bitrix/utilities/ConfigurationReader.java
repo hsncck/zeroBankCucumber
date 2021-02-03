@@ -1,4 +1,4 @@
-package com.vytrack.utilities;
+package com.bitrix.utilities;
 
 import java.io.FileInputStream;
 import java.util.Properties;

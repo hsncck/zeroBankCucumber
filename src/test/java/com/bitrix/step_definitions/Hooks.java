@@ -1,6 +1,6 @@
-package com.vytrack.step_definitions;
+package com.bitrix.step_definitions;
 
-import com.vytrack.utilities.Driver;
+import com.bitrix.utilities.Driver;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;

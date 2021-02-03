@@ -1,4 +1,4 @@
-package com.vytrack.utilities;
+package com.bitrix.utilities;
 
 
 import io.github.bonigarcia.wdm.WebDriverManager;

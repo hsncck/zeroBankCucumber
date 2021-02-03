@@ -1,4 +1,4 @@
-package com.vytrack.runners;
+package com.bitrix.runners;
 
 
 import io.cucumber.junit.Cucumber;
@@ -10,7 +10,7 @@ import org.junit.runner.RunWith;
         plugin = {"json:target/cucumber.json",
                 "html:target/default-html-reports"},
         features = "src/test/resources/features",
-        glue = "com/vytrack/step_definitions",
+        glue = "com/bitrix/step_definitions",
         dryRun = false,
         tags = "@wip"
 )
