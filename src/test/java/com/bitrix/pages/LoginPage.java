@@ -30,6 +30,9 @@ public class LoginPage {
     @FindBy(id = "proceed-link")
     public WebElement proceedLink;
 
+    @FindBy(css = ".alert.alert-error")
+    public WebElement alertMessage;
+
 
     public void login() {
 
@@ -43,6 +46,15 @@ public class LoginPage {
         detailsButton.click();
         proceedLink.click();
         // verification that we logged
+    }
+
+    public void login(String username, String password) {
+
+        signinButton.click();
+        userLogin.sendKeys(username);
+        userPassword.sendKeys(password);
+        submit.click();
+
     }
 
 
