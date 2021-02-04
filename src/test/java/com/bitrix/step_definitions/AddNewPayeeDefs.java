@@ -36,17 +36,16 @@ public class AddNewPayeeDefs {
 
         BrowserUtils.waitFor(2);
 
-        String expected="The new payee The Law Offices of Hyde, Price & Scharks was successfully created.";
-        String actual= payBillsPage.message.getText();
-        Assert.assertEquals(actual,expected);
 
-        System.out.println("payBillsPage.message.getText() = " + payBillsPage.message.getText());
 
 
     }
 
     @Then("message The new payee The Law Offices of Hyde, Price & Scharks was successfully created. should be displayed")
     public void message_The_new_payee_The_Law_Offices_of_Hyde_Price_Scharks_was_successfully_created_should_be_displayed() {
+        String expected="The new payee The Law Offices of Hyde, Price & Scharks was successfully created.";
+        String actual= new PayBillsPage().message.getText();
+        Assert.assertEquals(actual,expected);
 
     }
 }

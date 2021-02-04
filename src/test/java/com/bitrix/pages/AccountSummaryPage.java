@@ -27,6 +27,14 @@ public class AccountSummaryPage extends BasePage {
     @FindBy(xpath = "//a[@href='/bank/account-activity.html?accountId=4']")
     public WebElement loanLink;
 
+    @FindBy(css = ".board-header")
+    public List<WebElement> headers;
+
+    @FindBy(xpath = "(//*[@class='table'])[3]//th")
+    public List<WebElement> creditAccountOptions;
+
+
+
     public String accountDropdown() {
         WebElement dropdownElement = Driver.get().findElement(By.id("aa_accountId"));
 
