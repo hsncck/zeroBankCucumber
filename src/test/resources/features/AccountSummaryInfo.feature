@@ -13,7 +13,7 @@ Feature: Account Summary Page
       | Investment Accounts |
       | Credit Accounts     |
       | Loan Accounts       |
-  @wip
+
   Scenario: Credit Account Options
     Given the user accesses Account Summary Page
     Then the user should see following Account Types

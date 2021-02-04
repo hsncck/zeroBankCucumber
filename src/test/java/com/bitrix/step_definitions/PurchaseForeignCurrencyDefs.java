@@ -36,19 +36,27 @@ public class PurchaseForeignCurrencyDefs {
     public void following_currencies_should_be_available(List<String> menuOptions) {
         PayBillsPage payBillsPage = new PayBillsPage();
         payBillsPage.purchaseForeignCurrencyLink.click();
-
         BrowserUtils.waitFor(3);
 
-        List<String> options = BrowserUtils.getElementsText(payBillsPage.currencyList);
 
+        WebElement dropdownElement = Driver.get().findElement(By.cssSelector("#pc_currency"));
+
+        Select accountDropdown = new Select(dropdownElement);
+
+        List<WebElement> options = accountDropdown.getOptions();
+        List<String> dropDownList = new ArrayList<>();
+        for (WebElement option : options) {
+            dropDownList.add(option.getText());
+        }
+        System.out.println(dropDownList);
+        System.out.println(menuOptions);
         for (int i = 0; i < menuOptions.size(); i++) {
-            if (options.contains(menuOptions.get(i))) {
+            if (dropDownList.contains(menuOptions.get(i))) {
                 Assert.assertTrue(true);
             } else {
                 Assert.assertTrue(false);
             }
         }
-//THERE IS UNKNOWN PROBLEM IN THIS CODE . CHECK IT LATER
 
 
     }

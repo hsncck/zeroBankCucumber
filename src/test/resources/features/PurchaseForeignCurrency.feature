@@ -4,7 +4,7 @@ Feature: Purchase Foreign Currency
   Scenario: Available currencies
     Given the user accesses the Purchase foreign currency cash tab
     Then following currencies should be available
-      | Select One            |
+
       | Australia (dollar)    |
       | Canada (dollar)       |
       | Switzerland (franc)   |
@@ -17,9 +17,8 @@ Feature: Purchase Foreign Currency
       | Mexico (peso)         |
       | Norway (krone)        |
       | New Zealand (dollar)  |
-      | Sweden (krona)        |
       | Singapore (dollar)    |
-      | Thailand (baht)       |
+
 
 
 

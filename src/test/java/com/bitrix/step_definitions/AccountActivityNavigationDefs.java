@@ -1,5 +1,6 @@
 package com.bitrix.step_definitions;
 
+import com.bitrix.pages.AccountActivityPage;
 import com.bitrix.pages.AccountSummaryPage;
 import com.bitrix.pages.LoginPage;
 import com.bitrix.utilities.BrowserUtils;
@@ -39,7 +40,7 @@ public class AccountActivityNavigationDefs {
 
         String expectedOption = "Savings";
 
-        Assert.assertEquals(expectedOption,new AccountSummaryPage().accountDropdown());
+        Assert.assertEquals(expectedOption,new AccountActivityPage().accountDropdown());
     }
 
     @When("the user clicks on Brokerage link on the Account Summary page")
@@ -52,7 +53,7 @@ public class AccountActivityNavigationDefs {
     @Then("Account drop down should have Brokerage selected")
     public void account_drop_down_should_have_Brokerage_selected() {
         String expectedOption = "Brokerage";
-        Assert.assertEquals(expectedOption,new AccountSummaryPage().accountDropdown());
+        Assert.assertEquals(expectedOption,new AccountActivityPage().accountDropdown());
     }
 
     @When("the user clicks on Checking link on the Account Summary page")
@@ -65,7 +66,7 @@ public class AccountActivityNavigationDefs {
     @Then("Account drop down should have Checking selected")
     public void account_drop_down_should_have_Checking_selected() {
         String expectedOption = "Checking";
-        Assert.assertEquals(expectedOption,new AccountSummaryPage().accountDropdown());
+        Assert.assertEquals(expectedOption,new AccountActivityPage().accountDropdown());
     }
 
     @When("the user clicks on Credit card link on the Account Summary page")
@@ -77,7 +78,7 @@ public class AccountActivityNavigationDefs {
     @Then("Account drop down should have Credit Card selected")
     public void account_drop_down_should_have_Credit_Card_selected() {
         String expectedOption = "Credit Card";
-        Assert.assertEquals(expectedOption,new AccountSummaryPage().accountDropdown());
+        Assert.assertEquals(expectedOption,new AccountActivityPage().accountDropdown());
     }
 
     @When("the user clicks on Loan link on the Account Summary page")
@@ -89,7 +90,7 @@ public class AccountActivityNavigationDefs {
     @Then("Account drop down should have Loan selected")
     public void account_drop_down_should_have_Loan_selected() {
         String expectedOption = "Loan";
-        Assert.assertEquals(expectedOption,new AccountSummaryPage().accountDropdown());
+        Assert.assertEquals(expectedOption,new AccountActivityPage().accountDropdown());
     }
 
 

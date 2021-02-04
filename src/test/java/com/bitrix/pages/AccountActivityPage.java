@@ -32,4 +32,14 @@ public class AccountActivityPage extends BasePage {
         return new Select(typeSelect);
     }
 
+
+    public String accountDropdown() {
+        WebElement dropdownElement = Driver.get().findElement(By.id("aa_accountId"));
+
+        Select accountDropdown = new Select(dropdownElement);
+
+        String actualOption = accountDropdown.getFirstSelectedOption().getText();
+        return actualOption;
+    }
+
 }
