@@ -42,7 +42,17 @@ public class PayBillsPage extends BasePage {
     @FindBy(xpath = "(//*[@class='btn btn-primary'])[2]")
     public WebElement purchaseButton;
 
+    @FindBy(id = "sp_amount")
+    public WebElement amountInput;
 
+    @FindBy(id = "sp_date")
+    public WebElement dateInput;
+
+    @FindBy(id = "sp_description")
+    public WebElement descriptionInput;
+
+    @FindBy(id = "pay_saved_payees")
+    public WebElement payButton;
 
 
 

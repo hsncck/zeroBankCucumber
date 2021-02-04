@@ -27,7 +27,7 @@ Feature: Accounts Activity Info
       | Credit Card |
       | Brokerage   |
 
-  @wip
+
   Scenario: Transactions tabled options
 
     When the user clicks on Account Activity page
