@@ -50,77 +50,87 @@ public class FindTransactionsDefs {
     }
 
     @Then("results table should only show transactions dates between {string} to {string}")
-    public void results_table_should_only_show_transactions_dates_between_to(String fromDate, String toDate) {
-
-        BrowserUtils.waitFor(2);
-        String[] endSplit = toDate.split("-");
-        String toDatelast = "";
-        for (int i = 0; i < endSplit.length; i++) {
-            toDatelast += "" + endSplit[i];
-        }
-
-
-        String[] startSplit = fromDate.split("-");
-        String fromDateLast = "";
-        for (int i = 0; i < startSplit.length; i++) {
-            fromDateLast += "" + startSplit[i];
-        }
-
-
-        List<WebElement> numRows = Driver.get().findElements(By.xpath("(//tbody)[2]/tr/td[1]"));
-
-        for (int i = 1; i <= numRows.size(); i++) {
-            String element = "(//tbody)[2]/tr[" + i + "]/td[1]";
-            String actual = Driver.get().findElement(By.xpath(element)).getText();
-
-            String[] splitDate = actual.split("-");
-            String wholeDate = "";
-            for (int j = 0; j < splitDate.length; j++) {
-                wholeDate += "" + splitDate[j];
-
-            }
-
-            if (Integer.parseInt(wholeDate) <= Integer.parseInt(toDatelast)) {
-                Assert.assertTrue(true);
-            } else if (Integer.parseInt(wholeDate) >= Integer.parseInt(fromDateLast)) {
-                Assert.assertTrue(true);
-            } else {
-                Assert.assertTrue(false);
-            }
-
-        }
-
+    public void results_table_should_only_show_transactions_dates_between_to(String str1, String str2) {
+        Assert.assertTrue(new AccountActivityPage().fitsIn(str1,str2));
     }
 
     @Then("the results should be sorted by most recent date")
     public void the_results_should_be_sorted_by_most_recent_date() {
-
-        List<WebElement> numRows = Driver.get().findElements(By.xpath("(//tbody)[2]/tr/td[1]"));
-
-        List<String> result = new ArrayList<>();
-        for (int i = 1; i <= numRows.size(); i++) {
-            String element = "(//tbody)[2]/tr[" + i + "]/td[1]";
-            String actual = Driver.get().findElement(By.xpath(element)).getText();
-
-            String[] splitDate = actual.split("-");
-            String wholeDate = "";
-
-            for (int j = 0; j < splitDate.length; j++) {
-                wholeDate += "" + splitDate[j];
-            }
-            result.add(wholeDate);
-
-        }
-        int max = Integer.parseInt(result.get(0));
-        for (int i = 1; i < result.size(); i++) {
-            if (max < Integer.parseInt(result.get(i))) {
-                Assert.assertFalse(false);
-            } else {
-                Assert.assertTrue(true);
-            }
-        }
-
+        Assert.assertTrue(new AccountActivityPage().isSorted());
     }
+
+//    @Then("results table should only show transactions dates between {string} to {string}")
+//    public void results_table_should_only_show_transactions_dates_between_to(String fromDate, String toDate) {
+//
+//        BrowserUtils.waitFor(2);
+//        String[] endSplit = toDate.split("-");
+//        String toDatelast = "";
+//        for (int i = 0; i < endSplit.length; i++) {
+//            toDatelast += "" + endSplit[i];
+//        }
+//
+//
+//        String[] startSplit = fromDate.split("-");
+//        String fromDateLast = "";
+//        for (int i = 0; i < startSplit.length; i++) {
+//            fromDateLast += "" + startSplit[i];
+//        }
+//
+//
+//        List<WebElement> numRows = Driver.get().findElements(By.xpath("(//tbody)[2]/tr/td[1]"));
+//
+//        for (int i = 1; i <= numRows.size(); i++) {
+//            String element = "(//tbody)[2]/tr[" + i + "]/td[1]";
+//            String actual = Driver.get().findElement(By.xpath(element)).getText();
+//
+//            String[] splitDate = actual.split("-");
+//            String wholeDate = "";
+//            for (int j = 0; j < splitDate.length; j++) {
+//                wholeDate += "" + splitDate[j];
+//
+//            }
+//
+//            if (Integer.parseInt(wholeDate) <= Integer.parseInt(toDatelast)) {
+//                Assert.assertTrue(true);
+//            } else if (Integer.parseInt(wholeDate) >= Integer.parseInt(fromDateLast)) {
+//                Assert.assertTrue(true);
+//            } else {
+//                Assert.assertTrue(false);
+//            }
+//
+//        }
+//
+//    }
+
+//    @Then("the results should be sorted by most recent date")
+//    public void the_results_should_be_sorted_by_most_recent_date() {
+//
+//        List<WebElement> numRows = Driver.get().findElements(By.xpath("(//tbody)[2]/tr/td[1]"));
+//
+//        List<String> result = new ArrayList<>();
+//        for (int i = 1; i <= numRows.size(); i++) {
+//            String element = "(//tbody)[2]/tr[" + i + "]/td[1]";
+//            String actual = Driver.get().findElement(By.xpath(element)).getText();
+//
+//            String[] splitDate = actual.split("-");
+//            String wholeDate = "";
+//
+//            for (int j = 0; j < splitDate.length; j++) {
+//                wholeDate += "" + splitDate[j];
+//            }
+//            result.add(wholeDate);
+//
+//        }
+//        int max = Integer.parseInt(result.get(0));
+//        for (int i = 1; i < result.size(); i++) {
+//            if (max < Integer.parseInt(result.get(i))) {
+//                Assert.assertFalse(false);
+//            } else {
+//                Assert.assertTrue(true);
+//            }
+//        }
+//
+//    }
 
     @Then("the results table should only not contain transactions dated {string}")
     public void the_results_table_should_only_not_contain_transactions_dated(String date) {

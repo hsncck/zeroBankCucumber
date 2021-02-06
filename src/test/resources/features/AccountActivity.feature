@@ -1,3 +1,4 @@
+
 Feature: Accounts Activity Info
 
   Background:

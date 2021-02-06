@@ -24,7 +24,7 @@ Feature: Pay Bills Functionality
     When the user should see Zero – Pay Bills
     Then the user should enters amount field alphabetical char
     And the user should not see submit message
-  @wip
+
   Scenario: Date field should not accept alphabetical characters
     Given the user accesses the Pay Bills tab
     When the user should see Zero – Pay Bills
