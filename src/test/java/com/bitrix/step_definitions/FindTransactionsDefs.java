@@ -85,13 +85,13 @@ public class FindTransactionsDefs {
     }
     @Then("results table should show at least one result under Deposit")
     public void results_table_should_show_at_least_one_result_under_Deposit() {
-        Assert.assertTrue(new AccountActivityPage().columnBlank(3));
+        Assert.assertTrue(new AccountActivityPage().columnEmpty(3));
 
     }
 
     @Then("results table should show at least one result under Withdrawal")
     public void results_table_should_show_at_least_one_result_under_Withdrawal() {
-        Assert.assertTrue(new AccountActivityPage().columnBlank(4));
+        Assert.assertTrue(new AccountActivityPage().columnEmpty(4));
     }
 
     @When("user selects type {string}")
@@ -101,12 +101,12 @@ public class FindTransactionsDefs {
 
     @Then("results table should show no result under Withdrawal")
     public void results_table_should_show_no_result_under_Withdrawal() {
-        Assert.assertTrue(new AccountActivityPage().columnBlank(4));
+        Assert.assertTrue(new AccountActivityPage().columnEmpty(4));
     }
 
     @Then("results table should show no result under Deposit")
     public void results_table_should_show_no_result_under_Deposit() {
-        Assert.assertTrue(new AccountActivityPage().columnBlank(3));
+        Assert.assertTrue(new AccountActivityPage().columnEmpty(3));
     }
 
 }

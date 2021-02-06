@@ -105,7 +105,7 @@ public class AccountActivityPage extends BasePage {
         return flag;
     }
 
-    public boolean columnBlank(int column){
+    public boolean columnEmpty(int column){
         String check = "";
         for (int i = 1; i <= rows.size(); i++) {
             String locator = "(//tbody)[2]/tr["+i+"]/td["+column+"]";
