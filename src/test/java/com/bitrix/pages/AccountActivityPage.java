@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class AccountActivityPage extends BasePage {
@@ -31,7 +32,7 @@ public class AccountActivityPage extends BasePage {
     @FindBy(xpath = "(//tbody)[2]/tr/td[1]")
     public List<WebElement> rows;
 
-    public Select typeOptionsList(){
+    public Select typeOptionsList() {
         return new Select(typeSelect);
     }
 
@@ -45,38 +46,42 @@ public class AccountActivityPage extends BasePage {
         return actualOption;
     }
 
-    public int[] numberedDate (String str){
-        String [] date = str.split("-");
-        int [] Date = new int[3];
-        for (int i = 0; i < 3 ; i++) {
+    public int[] numberedDate(String str) {
+        String[] date = str.split("-");
+        int[] Date = new int[3];
+        for (int i = 0; i < 3; i++) {
             Date[i] = Integer.parseInt(date[i]);
         }
+
         return Date;
     }
-    public boolean fitsIn(String str1, String str2){
+
+    public boolean fitsIn(String str1, String str2) {
         boolean flag = true;
         for (int i = 1; i <= rows.size(); i++) {
             String dateString = Driver.get().findElement(By.xpath("(//tbody)[2]/tr[" + i + "]/td[1]")).getText();
-            for (int j = 0; j < 3 ; j++) {
-                if (!(numberedDate(dateString)[j] >= numberedDate(str1)[j] && numberedDate(dateString)[j] <= numberedDate(str2)[j])){
+            for (int j = 0; j < 3; j++) {
+                if (!(numberedDate(dateString)[j] >= numberedDate(str1)[j] && numberedDate(dateString)[j] <= numberedDate(str2)[j])) {
                     flag = false;
-                } }
+                }
+            }
         }
         return flag;
     }
 
-    public boolean isSorted(){
-        boolean flag=true;
-        int [] arr = new int[rows.size()];
+    public boolean isSorted() {
+        boolean flag = true;
+        int[] arr = new int[rows.size()];
         label:
-        for (int j = 0; j < 3 ; j++){
-            for (int i = 1; i <= rows.size() ; i++) {
+        for (int j = 0; j < 3; j++) {
+            for (int i = 1; i <= rows.size(); i++) {
                 String dateString = Driver.get().findElement(By.xpath("(//tbody)[2]/tr[" + i + "]/td[1]")).getText();
-                arr[i-1] = numberedDate(dateString)[j];
+                arr[i - 1] = numberedDate(dateString)[j];
+
             }
             int first = arr[0];
             for (int i = 1; i < rows.size(); i++) {
-                if (!(first >= arr[i])){
+                if (!(first >= arr[i])) {
                     flag = false;
                     break label;
                 }

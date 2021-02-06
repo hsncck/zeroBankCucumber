@@ -48,8 +48,7 @@ public class PurchaseForeignCurrencyDefs {
         for (WebElement option : options) {
             dropDownList.add(option.getText());
         }
-        System.out.println(dropDownList);
-        System.out.println(menuOptions);
+
         for (int i = 0; i < menuOptions.size(); i++) {
             if (dropDownList.contains(menuOptions.get(i))) {
                 Assert.assertTrue(true);

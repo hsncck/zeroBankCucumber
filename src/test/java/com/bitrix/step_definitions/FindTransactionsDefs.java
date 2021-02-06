@@ -58,7 +58,9 @@ public class FindTransactionsDefs {
     public void the_results_should_be_sorted_by_most_recent_date() {
         Assert.assertTrue(new AccountActivityPage().isSorted());
     }
-
+//
+//    *******************************************
+//    This is ANOTHER APPROACH FOR solution
 //    @Then("results table should only show transactions dates between {string} to {string}")
 //    public void results_table_should_only_show_transactions_dates_between_to(String fromDate, String toDate) {
 //
