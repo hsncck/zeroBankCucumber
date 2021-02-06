@@ -49,6 +49,7 @@ public class AccountActivityPage extends BasePage {
         return actualOption;
     }
 
+//    THIS CODE BLOK IS WRITTEN BY ONDER SAHAN
     public int[] numberedDate (String str){
         String [] date = str.split("-");
         int [] Date = new int[3];
